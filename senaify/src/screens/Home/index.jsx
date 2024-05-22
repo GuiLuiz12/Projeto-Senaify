@@ -115,7 +115,7 @@ const Home = ({ token, atual, audio, setAtual, setAudio }) => {
                       </>) 
                     : (<>
                         <ContainerPlaylist>
-                          <ButtonIcon onPress={() => setPlaylist(null)}>
+                          <ButtonIcon onPress={() => setPlaylist(null)} accessibilityLabel="back-button">
                             <FontAwesome5
                               name="angle-left" 
                               size={30} color="#fbfbfb"
@@ -134,12 +134,13 @@ const Home = ({ token, atual, audio, setAtual, setAudio }) => {
                         </ContainerPlaylistData>
 
                         <ContainerList
+                          
                           key={"musics"}
                           data={ listaMusic }
                           numColumns={1}
                           renderItem={ ({ item }) => (
                             <Music
-                            label="music-item"
+                              label="music-item"
                               play={atual == item.track.preview_url}
                               onPress={() => playSound(item.track.preview_url, atual, setAtual, audio, setAudio)}
                               // onPress={() => playSound(item.track.preview_url)}
